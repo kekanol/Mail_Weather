@@ -6,7 +6,7 @@ target 'MailWeather' do
   use_frameworks!
 
   # Pods for MailWeather
-	pod 'Alamofire', '~> 5.0'
+	pod 'Alamofire'
 
 
   target 'MailWeatherTests' do

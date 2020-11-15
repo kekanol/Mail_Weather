@@ -9,7 +9,6 @@ import Foundation
 
 struct WeatherModel {
     var cityName: String = ""
-    var currentTemperature: String = ""
+    var temperature: String = ""
     var icon: String = ""
-    var nextTemperature: [String] = []
 }
