@@ -12,14 +12,14 @@ class CentralView: UIView {
     let cityName = UILabel()
     let temperature = UILabel()
     let icon = UILabel()
-    
+
     private var screenSize = UIScreen.main.bounds
     private var spacing: CGFloat = 20
     
     override func layoutSubviews() {
         
         setupView()
-        
+                        
         self.addSubview(cityName)
         self.addSubview(temperature)
         self.addSubview(icon)
@@ -36,7 +36,7 @@ class CentralView: UIView {
         layer.shadowRadius = spacing / 4
         layer.shadowOffset = CGSize(width: 0, height: 4)
         self.layer.cornerRadius = spacing
-//        self.frame.size = CGSize.zero
+        self.alpha = 0
     }
     
     

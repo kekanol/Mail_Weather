@@ -19,7 +19,6 @@
 		F439C87D255EB03F00C376A1 /* MailWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439C87C255EB03F00C376A1 /* MailWeatherTests.swift */; };
 		F439C888255EB03F00C376A1 /* MailWeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439C887255EB03F00C376A1 /* MailWeatherUITests.swift */; };
 		F4D79A6C2561681B000DD421 /* MailWeatherPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D79A6B2561681B000DD421 /* MailWeatherPresenter.swift */; };
-		F4D79A76256173BE000DD421 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D79A75256173BE000DD421 /* WeatherModel.swift */; };
 		F4D79A8125618CF7000DD421 /* CentralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D79A8025618CF7000DD421 /* CentralView.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,7 +64,6 @@
 		F439C887255EB03F00C376A1 /* MailWeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailWeatherUITests.swift; sourceTree = "<group>"; };
 		F439C889255EB03F00C376A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4D79A6B2561681B000DD421 /* MailWeatherPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailWeatherPresenter.swift; sourceTree = "<group>"; };
-		F4D79A75256173BE000DD421 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		F4D79A8025618CF7000DD421 /* CentralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,10 +145,9 @@
 			children = (
 				F439C865255EB03D00C376A1 /* AppDelegate.swift */,
 				F439C867255EB03D00C376A1 /* SceneDelegate.swift */,
+				F4D79A8025618CF7000DD421 /* CentralView.swift */,
 				F439C869255EB03D00C376A1 /* ViewController.swift */,
 				F4D79A6B2561681B000DD421 /* MailWeatherPresenter.swift */,
-				F4D79A75256173BE000DD421 /* WeatherModel.swift */,
-				F4D79A8025618CF7000DD421 /* CentralView.swift */,
 				F439C86B255EB03D00C376A1 /* Main.storyboard */,
 				F439C86E255EB03F00C376A1 /* Assets.xcassets */,
 				F439C870255EB03F00C376A1 /* LaunchScreen.storyboard */,
@@ -416,7 +413,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4D79A8125618CF7000DD421 /* CentralView.swift in Sources */,
-				F4D79A76256173BE000DD421 /* WeatherModel.swift in Sources */,
 				F4D79A6C2561681B000DD421 /* MailWeatherPresenter.swift in Sources */,
 				F439C86A255EB03D00C376A1 /* ViewController.swift in Sources */,
 				F439C866255EB03D00C376A1 /* AppDelegate.swift in Sources */,

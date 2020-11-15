@@ -14,7 +14,8 @@ class ViewController: UIViewController, UISearchBarDelegate  {
     let presenter = MailWeatherPresenter()
     
     var searchActive : Bool = false
-    private var spacing: CGFloat = 20
+    
+    private let spacing: CGFloat = 20
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,13 +25,7 @@ class ViewController: UIViewController, UISearchBarDelegate  {
         
         view.addSubview(searchBar)
         view.addSubview(centralView)
-        if searchBar.text == "" {
-            centralView.isHidden = true
-        }
         
-        centralView.cityName.text = presenter.data.cityName
-        centralView.icon.text = presenter.data.icon
-        centralView.temperature.text = presenter.data.temperature
     }
     
     
@@ -53,10 +48,6 @@ class ViewController: UIViewController, UISearchBarDelegate  {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         presenter.textDidChange(searchText: searchText)
-        centralView.isHidden = false
-        if searchBar.text == "" {
-            centralView.isHidden = true
-        }
     }
     
     func setupConstraints() {
