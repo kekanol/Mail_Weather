@@ -10,6 +10,14 @@ import UIKit
 
 class MailWeatherPresenter {
 
-    var data: [WeatherCellModel] = []
+    var data: WeatherModel = WeatherModel(cityName: "2", currentTemperature: "3", icon: "♦️", nextTemperature: [])
     weak var view: ViewController?
+    
+    
+    func textDidChange(searchText: String) {
+        <#function body#>
+    }
+    
+    
+    
 }

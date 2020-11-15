@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct WeatherCellModel {
+struct WeatherModel {
     var cityName: String = ""
     var currentTemperature: String = ""
     var icon: String = ""
