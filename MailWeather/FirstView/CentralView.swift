@@ -13,11 +13,10 @@ class CentralView: UIView {
     let temperature = UILabel()
     let icon = UILabel()
     
-    private var screenSize = UIScreen.main.bounds
-    private var spacing: CGFloat = 20
+    private let screenSize = UIScreen.main.bounds
+    private let spacing: CGFloat = 20
     
     override func layoutSubviews() {
-        
         setupView()
                         
         self.addSubview(cityName)

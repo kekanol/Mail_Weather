@@ -1,13 +1,13 @@
 //
-//  ViewController.swift
+//  FirstViewController.swift
 //  MailWeather
 //
-//  Created by Константин Емельянов on 13.11.2020.
+//  Created by Константин Емельянов on 16.11.2020.
 //
 
 import UIKit
 
-class ViewController: UIViewController, UISearchBarDelegate  {
+class FirstViewController: UIViewController, UISearchBarDelegate  {
     
     let searchBar = UISearchBar()
     let centralView = CentralView()
@@ -21,6 +21,7 @@ class ViewController: UIViewController, UISearchBarDelegate  {
         super.viewDidLoad()
         presenter.view = self
         
+        self.view.backgroundColor = .white
         searchBar.delegate = self
         
         view.addSubview(searchBar)
@@ -71,12 +72,5 @@ class ViewController: UIViewController, UISearchBarDelegate  {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false
-        
     }
 }
-
-
-
-
-
-

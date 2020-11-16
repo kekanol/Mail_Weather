@@ -9,7 +9,7 @@ import Alamofire
 
 class MailWeatherPresenter {
     
-    weak var view: ViewController?
+    weak var view: FirstViewController?
     
     private let apiKey = "27c029dbed898bbc075ad5c4e972953d"
     
@@ -41,7 +41,7 @@ class MailWeatherPresenter {
                     }
                 } 
             } else {
-                print("fakap")
+//                print("fakap")
 //                ???/?????????????? cho delat`????????
                 //                UIView.animate(withDuration: 0.5) {
                 //                    self.view?.centralView.cityName.text = "No City Like That"
@@ -55,7 +55,7 @@ class MailWeatherPresenter {
     @ objc func show() {
         self.view?.centralView.tapAction()
         let destination = DetailViewController()
-//        print(self.view?.navigationController)
+        print(self.view?.navigationController) 
         //TODO make self.view?.navigationController become not nil
         self.view?.navigationController?.setNavigationBarHidden(false, animated: true)
         self.view?.navigationController?.pushViewController(destination, animated: true)
