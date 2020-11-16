@@ -12,7 +12,7 @@ class CentralView: UIView {
     let cityName = UILabel()
     let temperature = UILabel()
     let icon = UILabel()
-
+    
     private var screenSize = UIScreen.main.bounds
     private var spacing: CGFloat = 20
     
@@ -60,5 +60,17 @@ class CentralView: UIView {
         icon.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: spacing * -1).isActive = true
         icon.heightAnchor.constraint(equalTo: temperature.heightAnchor).isActive = true
         icon.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: spacing * -1).isActive = true
+    }
+    
+    func tapAction() {
+        UIView.animate(withDuration: 0.3) {
+            self.backgroundColor = .gray
+            self.alpha = 0.5
+        }
+        
+        UIView.animate(withDuration: 0.3) {
+            self.backgroundColor = .white
+            self.alpha = 1
+        }
     }
 }

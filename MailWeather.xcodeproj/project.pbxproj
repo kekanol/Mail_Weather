@@ -18,6 +18,8 @@
 		F439C872255EB03F00C376A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F439C870255EB03F00C376A1 /* LaunchScreen.storyboard */; };
 		F439C87D255EB03F00C376A1 /* MailWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439C87C255EB03F00C376A1 /* MailWeatherTests.swift */; };
 		F439C888255EB03F00C376A1 /* MailWeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F439C887255EB03F00C376A1 /* MailWeatherUITests.swift */; };
+		F4B739F22561F7F3009F83F2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B739F12561F7F3009F83F2 /* DetailViewController.swift */; };
+		F4B739F72561F952009F83F2 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B739F62561F952009F83F2 /* DetailPresenter.swift */; };
 		F4D79A6C2561681B000DD421 /* MailWeatherPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D79A6B2561681B000DD421 /* MailWeatherPresenter.swift */; };
 		F4D79A8125618CF7000DD421 /* CentralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D79A8025618CF7000DD421 /* CentralView.swift */; };
 /* End PBXBuildFile section */
@@ -63,6 +65,8 @@
 		F439C883255EB03F00C376A1 /* MailWeatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MailWeatherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F439C887255EB03F00C376A1 /* MailWeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailWeatherUITests.swift; sourceTree = "<group>"; };
 		F439C889255EB03F00C376A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4B739F12561F7F3009F83F2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		F4B739F62561F952009F83F2 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		F4D79A6B2561681B000DD421 /* MailWeatherPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailWeatherPresenter.swift; sourceTree = "<group>"; };
 		F4D79A8025618CF7000DD421 /* CentralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -145,9 +149,8 @@
 			children = (
 				F439C865255EB03D00C376A1 /* AppDelegate.swift */,
 				F439C867255EB03D00C376A1 /* SceneDelegate.swift */,
-				F4D79A8025618CF7000DD421 /* CentralView.swift */,
-				F439C869255EB03D00C376A1 /* ViewController.swift */,
-				F4D79A6B2561681B000DD421 /* MailWeatherPresenter.swift */,
+				F4B739FB2561F973009F83F2 /* SecondView */,
+				F4B739ED2561F7D5009F83F2 /* FirstView */,
 				F439C86B255EB03D00C376A1 /* Main.storyboard */,
 				F439C86E255EB03F00C376A1 /* Assets.xcassets */,
 				F439C870255EB03F00C376A1 /* LaunchScreen.storyboard */,
@@ -172,6 +175,25 @@
 				F439C889255EB03F00C376A1 /* Info.plist */,
 			);
 			path = MailWeatherUITests;
+			sourceTree = "<group>";
+		};
+		F4B739ED2561F7D5009F83F2 /* FirstView */ = {
+			isa = PBXGroup;
+			children = (
+				F4D79A8025618CF7000DD421 /* CentralView.swift */,
+				F439C869255EB03D00C376A1 /* ViewController.swift */,
+				F4D79A6B2561681B000DD421 /* MailWeatherPresenter.swift */,
+			);
+			path = FirstView;
+			sourceTree = "<group>";
+		};
+		F4B739FB2561F973009F83F2 /* SecondView */ = {
+			isa = PBXGroup;
+			children = (
+				F4B739F12561F7F3009F83F2 /* DetailViewController.swift */,
+				F4B739F62561F952009F83F2 /* DetailPresenter.swift */,
+			);
+			path = SecondView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -415,7 +437,9 @@
 				F4D79A8125618CF7000DD421 /* CentralView.swift in Sources */,
 				F4D79A6C2561681B000DD421 /* MailWeatherPresenter.swift in Sources */,
 				F439C86A255EB03D00C376A1 /* ViewController.swift in Sources */,
+				F4B739F22561F7F3009F83F2 /* DetailViewController.swift in Sources */,
 				F439C866255EB03D00C376A1 /* AppDelegate.swift in Sources */,
+				F4B739F72561F952009F83F2 /* DetailPresenter.swift in Sources */,
 				F439C868255EB03D00C376A1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

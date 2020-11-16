@@ -26,24 +26,8 @@ class ViewController: UIViewController, UISearchBarDelegate  {
         view.addSubview(searchBar)
         view.addSubview(centralView)
         
-    }
-    
-    
-    func searchBarTextDidBeginEditing(_searchBar: UISearchBar) {
-        searchActive = true
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchActive = false
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchActive = false
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchActive = false
-        
+        let tap = UITapGestureRecognizer(target: self.presenter , action: #selector(self.presenter.show))
+        centralView.addGestureRecognizer(tap)
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -64,9 +48,30 @@ class ViewController: UIViewController, UISearchBarDelegate  {
         centralView.heightAnchor.constraint(equalTo: centralView.widthAnchor).isActive = true
         
     }
-
+    
     override func viewDidLayoutSubviews() {
         setupConstraints()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    func searchBarTextDidBeginEditing(_searchBar: UISearchBar) {
+        searchActive = true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchActive = false
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false
+        
     }
 }
 
