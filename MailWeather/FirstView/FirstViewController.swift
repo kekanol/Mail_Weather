@@ -24,6 +24,7 @@ class FirstViewController: UIViewController, UISearchBarDelegate  {
         self.view.backgroundColor = .white
         
         searchBar.delegate = self
+        searchBar.becomeFirstResponder() 
         
         view.addSubview(searchBar)
         view.addSubview(centralView)

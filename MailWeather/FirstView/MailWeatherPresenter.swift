@@ -25,7 +25,7 @@ class MailWeatherPresenter {
         AF.request(self.urlHeader + "\(name)"  + "&appid=" + apiKey).responseJSON { response in
             
             if (response.error != nil) {
-                self.view?.centralView.cityName.text = "!АШЫПКА! !НИТ ИНЕТУ!"
+                self.view?.centralView.cityName.text = "NO CONNECTION"
             }
             
             let data = response.value as? NSDictionary
@@ -47,7 +47,7 @@ class MailWeatherPresenter {
                     }
                 } 
             } else {
-                self.view?.centralView.cityName.text = "ГОРОД ПРОПАЛ"
+                self.view?.centralView.cityName.text = "NO CITY LIKE THAT"
                 self.view?.centralView.icon.text = ""
                 self.view?.centralView.temperature.text = ""
             }
@@ -56,10 +56,22 @@ class MailWeatherPresenter {
     
     @ objc func show() {
         self.view?.centralView.tapAction()
-        let destination = DetailViewController()
-        destination.cityName = self.search
-        self.view?.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.view?.navigationController?.pushViewController(destination, animated: true)
+        
+        if self.search == self.view?.centralView.cityName.text {
+            
+            let destination = DetailViewController()
+            destination.cityName = self.search
+            self.view?.navigationController?.setNavigationBarHidden(false, animated: true)
+            self.view?.navigationController?.pushViewController(destination, animated: true)
+            
+        } else {
+            
+            let t = self.view?.centralView.cityName.text
+            UIView.animate(withDuration: 0.6) {
+                self.view?.centralView.cityName.text = "ENTER WRIGHT"
+                self.view?.centralView.cityName.text = t
+            }
+        }        
     }
     
     func animate() {

@@ -36,21 +36,22 @@ class DetailPresenter {
                     
                     if let dt = item["dt"] as? Int {
                         let date = Date(timeIntervalSince1970: TimeInterval(dt))
-                        elem.date = String("\(date)".dropLast(9))
+                        elem.date = date.convert()
                     }
                     self.data.append(elem)
-                }                  
+                }                
                 return self.reload()
             }
         }
-        
         return self.loading()
-
     }
     
     func reload() {
         print("reloaded")
         self.view?.tableView.reloadData()
+        UIView.animate(withDuration: 0.3) {
+            self.view?.tableView.alpha = 1
+        }
     }
     
     func loading() {
