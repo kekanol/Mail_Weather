@@ -9,17 +9,25 @@ import Alamofire
 
 class MailWeatherPresenter {
     
+    
     weak var view: FirstViewController?
     
-    private let apiKey = "27c029dbed898bbc075ad5c4e972953d"
-    
+    private let urlHeader = "https://api.openweathermap.org/data/2.5/weather?q="
+    private var search: String? 
+
     func textDidChange(searchText: String) {
         animate()
         makeRequest(name: searchText)
+        search = searchText
     }
     
     func makeRequest(name: String) {
-        AF.request("https://api.openweathermap.org/data/2.5/weather?q=" + "\(name)" + "&appid=" + self.apiKey).responseJSON { response in
+        AF.request(self.urlHeader + "\(name)"  + "&appid=" + apiKey).responseJSON { response in
+            
+            if (response.error != nil) {
+                self.view?.centralView.cityName.text = "!АШЫПКА! !НИТ ИНЕТУ!"
+            }
+            
             let data = response.value as? NSDictionary
             if let cod = data?["cod"] as? Int {
                 if cod == 200 {
@@ -35,19 +43,15 @@ class MailWeatherPresenter {
                     if let weather = data?["weather"] as? Array<Any>{
                         if let whr = weather[0] as? NSDictionary {
                             if let main = whr["main"] as? String {
-                                self.view?.centralView.icon.text = main
+                                self.view?.centralView.icon.text = self.convertToEmoji(main)
                             }
                         }
                     }
                 } 
             } else {
-//                print("fakap")
-//                ???/?????????????? cho delat`????????
-                //                UIView.animate(withDuration: 0.5) {
-                //                    self.view?.centralView.cityName.text = "No City Like That"
-                //                    self.view?.centralView.icon.text = ""
-                //                    self.view?.centralView.temperature.text = ""
-                //                }
+                self.view?.centralView.cityName.text = "ГОРОД ПРОПАЛ"
+                self.view?.centralView.icon.text = ""
+                self.view?.centralView.temperature.text = ""
             }
         }
     }
@@ -55,8 +59,7 @@ class MailWeatherPresenter {
     @ objc func show() {
         self.view?.centralView.tapAction()
         let destination = DetailViewController()
-        print(self.view?.navigationController) 
-        //TODO make self.view?.navigationController become not nil
+        destination.cityName = self.search
         self.view?.navigationController?.setNavigationBarHidden(false, animated: true)
         self.view?.navigationController?.pushViewController(destination, animated: true)
     }
@@ -71,5 +74,22 @@ class MailWeatherPresenter {
                 self.view?.centralView.alpha = 0
             }
         }
+    }
+    
+    func convertToEmoji(_ str: String) -> String {
+        switch str {
+        case "Clouds":
+            return "☁️"
+        case "Clear":
+            return "☀️"
+        case "Rain":
+            return "🌧"
+        case "Snow":
+            return "🌨"
+        default:
+            print(str)
+            return str
+        }
+        
     }
 }

@@ -36,6 +36,10 @@ class CentralView: UIView {
         layer.shadowOffset = CGSize(width: 0, height: 4)
         self.layer.cornerRadius = spacing
         self.alpha = 0
+        
+        setupCityName()
+        setupTemperature()
+        setupIcon()
     }
     
     
@@ -72,4 +76,25 @@ class CentralView: UIView {
             self.alpha = 1
         }
     }
+    
+    func setupCityName() {
+        cityName.text = ""
+        cityName.textAlignment = .center
+        cityName.font = UIFont.systemFont(ofSize: 40)
+        cityName.lineBreakMode = .byWordWrapping
+        cityName.numberOfLines = 0
+    }
+    
+    func setupTemperature() {
+        temperature.text = ""
+        temperature.textAlignment = .center
+        temperature.font = UIFont.systemFont(ofSize: 60)
+    }
+    
+    func setupIcon() {
+        icon.text = ""
+        icon.textAlignment = .center
+        icon.font = UIFont.systemFont(ofSize: 60)
+    }
 }
+

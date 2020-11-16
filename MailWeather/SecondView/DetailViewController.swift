@@ -11,6 +11,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     let tableView = UITableView()
     let presenter = DetailPresenter()
+    var cityName: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        presenter.loadData()
+        presenter.loadData(cityName: self.cityName ?? "")
     }
     
     func setupConstraints() {

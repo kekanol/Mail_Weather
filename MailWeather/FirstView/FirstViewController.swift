@@ -22,6 +22,7 @@ class FirstViewController: UIViewController, UISearchBarDelegate  {
         presenter.view = self
         
         self.view.backgroundColor = .white
+        
         searchBar.delegate = self
         
         view.addSubview(searchBar)
@@ -45,7 +46,7 @@ class FirstViewController: UIViewController, UISearchBarDelegate  {
         
         centralView.leadingAnchor.constraint(equalTo: searchBar.leadingAnchor).isActive = true
         centralView.trailingAnchor.constraint(equalTo: searchBar.trailingAnchor).isActive = true
-        centralView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50).isActive = true
+        centralView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -(UIScreen.main.bounds.height / 10)).isActive = true
         centralView.heightAnchor.constraint(equalTo: centralView.widthAnchor).isActive = true
         
     }

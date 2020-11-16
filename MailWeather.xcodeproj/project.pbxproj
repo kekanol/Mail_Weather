@@ -14,6 +14,7 @@
 		F43A7B242562A1B000382D99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F43A7B232562A1B000382D99 /* Main.storyboard */; };
 		F43A7B332562A34E00382D99 /* Pods_MailWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C167438D82A2A4EE83714488 /* Pods_MailWeather.framework */; };
 		F43A7B342562A34E00382D99 /* Pods_MailWeather.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C167438D82A2A4EE83714488 /* Pods_MailWeather.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F4B722112562B7B200D93F43 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B722102562B7B200D93F43 /* Constants.swift */; };
 		F4B739F22561F7F3009F83F2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B739F12561F7F3009F83F2 /* DetailViewController.swift */; };
 		F4B739F72561F952009F83F2 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B739F62561F952009F83F2 /* DetailPresenter.swift */; };
 		F4D79A6C2561681B000DD421 /* MailWeatherPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D79A6B2561681B000DD421 /* MailWeatherPresenter.swift */; };
@@ -64,6 +65,7 @@
 		F439C883255EB03F00C376A1 /* MailWeatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MailWeatherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F43A7B1E2562A14E00382D99 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		F43A7B232562A1B000382D99 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		F4B722102562B7B200D93F43 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F4B739F12561F7F3009F83F2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F4B739F62561F952009F83F2 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		F4D79A6B2561681B000DD421 /* MailWeatherPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailWeatherPresenter.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				F439C865255EB03D00C376A1 /* AppDelegate.swift */,
+				F4B722102562B7B200D93F43 /* Constants.swift */,
 				F4B739FB2561F973009F83F2 /* SecondView */,
 				F4B739ED2561F7D5009F83F2 /* FirstView */,
 				F439C86E255EB03F00C376A1 /* Assets.xcassets */,
@@ -345,6 +348,7 @@
 				F4D79A6C2561681B000DD421 /* MailWeatherPresenter.swift in Sources */,
 				F4B739F22561F7F3009F83F2 /* DetailViewController.swift in Sources */,
 				F439C866255EB03D00C376A1 /* AppDelegate.swift in Sources */,
+				F4B722112562B7B200D93F43 /* Constants.swift in Sources */,
 				F4B739F72561F952009F83F2 /* DetailPresenter.swift in Sources */,
 				F43A7B1F2562A14E00382D99 /* FirstViewController.swift in Sources */,
 			);
