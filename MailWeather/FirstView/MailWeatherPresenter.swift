@@ -43,7 +43,7 @@ class MailWeatherPresenter {
                     if let weather = data?["weather"] as? Array<Any>{
                         if let whr = weather[0] as? NSDictionary {
                             if let main = whr["main"] as? String {
-                                self.view?.centralView.icon.text = self.convertToEmoji(main)
+                                self.view?.centralView.icon.text = main.convertToEmoji()
                             }
                         }
                     }
@@ -74,22 +74,5 @@ class MailWeatherPresenter {
                 self.view?.centralView.alpha = 0
             }
         }
-    }
-    
-    func convertToEmoji(_ str: String) -> String {
-        switch str {
-        case "Clouds":
-            return "☁️"
-        case "Clear":
-            return "☀️"
-        case "Rain":
-            return "🌧"
-        case "Snow":
-            return "🌨"
-        default:
-            print(str)
-            return str
-        }
-        
     }
 }

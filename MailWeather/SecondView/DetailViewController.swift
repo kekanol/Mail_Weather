@@ -12,11 +12,13 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     let tableView = UITableView()
     let presenter = DetailPresenter()
     var cityName: String?
+    var data: [DetailModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.view = self
-        
+//        print(data.count)
+        self.title = cityName
         self.view.addSubview(tableView)
     }
 
@@ -25,11 +27,14 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
+        cell.backgroundColor = .black
+        cell.textLabel?.text = "\(data[indexPath.row].date)"
+        print(cell)
         return cell
     }
     
