@@ -25,4 +25,6 @@ extension String {
         
     }
     
+    func addCelcium() -> String {self + "℃"}
+    
 }

@@ -9,5 +9,5 @@ import Foundation
 struct DetailModel {
     var date: String
     var weather: String
-    var temperature: Int
+    var temperature: String
 }

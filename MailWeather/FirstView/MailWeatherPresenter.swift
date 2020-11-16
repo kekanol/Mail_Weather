@@ -14,7 +14,7 @@ class MailWeatherPresenter {
     
     private let urlHeader = "https://api.openweathermap.org/data/2.5/weather?q="
     private var search: String? 
-
+    
     func textDidChange(searchText: String) {
         animate()
         makeRequest(name: searchText)
@@ -37,14 +37,12 @@ class MailWeatherPresenter {
                     if let main = data?["main"] as? NSDictionary {
                         if let temperature = main["temp"] as? Double {
                             let temp: Int = Int((temperature - 273).rounded())
-                            self.view?.centralView.temperature.text = "\(temp)"
+                            self.view?.centralView.temperature.text = "\(temp)".addCelcium()
                         }
                     }
-                    if let weather = data?["weather"] as? Array<Any>{
-                        if let whr = weather[0] as? NSDictionary {
-                            if let main = whr["main"] as? String {
-                                self.view?.centralView.icon.text = main.convertToEmoji()
-                            }
+                    if let weather = data?["weather"] as? Array<NSDictionary>{
+                        if let main = weather[0]["main"] as? String {
+                            self.view?.centralView.icon.text = main.convertToEmoji()
                         }
                     }
                 } 

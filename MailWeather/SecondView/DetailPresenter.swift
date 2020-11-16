@@ -20,11 +20,11 @@ class DetailPresenter {
             let data = responce.value as? NSDictionary
             if let list = data?["list"] as? Array<NSDictionary>{
                 for item  in list {
-                    var elem = DetailModel(date: "", weather: "", temperature: 0)
+                    var elem = DetailModel(date: "", weather: "", temperature: "")
                     
                     if let main = item["main"] as? NSDictionary {
                         if let temperature = main["temp"] as? Double{
-                            elem.temperature = Int(temperature.rounded() - 273)
+                            elem.temperature = String(Int(temperature.rounded()) - 273).addCelcium()
                         }
                     }
                     
