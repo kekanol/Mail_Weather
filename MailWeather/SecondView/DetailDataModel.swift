@@ -7,7 +7,7 @@
 import Foundation
 
 struct DetailModel {
-    var date: Date
+    var date: String
     var weather: String
     var temperature: Int
 }

@@ -12,19 +12,19 @@ class DetailPresenter {
     weak var view: DetailViewController?
     
     private let urlheader = "https://api.openweathermap.org/data/2.5/forecast?q="
-    
+    var data: [DetailModel] = []
+
     func loadData(cityName: String) -> ( Void ) {
         
         AF.request(self.urlheader + cityName + "&appid=" + apiKey).responseJSON { responce in
             let data = responce.value as? NSDictionary
             if let list = data?["list"] as? Array<NSDictionary>{
                 for item  in list {
-                    
-                    var elem = DetailModel(date: Date(), weather: "", temperature: 0)
+                    var elem = DetailModel(date: "", weather: "", temperature: 0)
                     
                     if let main = item["main"] as? NSDictionary {
-                        if let temperature = main["temp"] as? Int{
-                            elem.temperature = temperature
+                        if let temperature = main["temp"] as? Double{
+                            elem.temperature = Int(temperature.rounded() - 273)
                         }
                     }
                     
@@ -34,24 +34,27 @@ class DetailPresenter {
                         }
                     }
                     
-                    if let dt = item["dt_txt"] as? Date {
-                        elem.date = dt
+                    if let dt = item["dt"] as? Int {
+                        let date = Date(timeIntervalSince1970: TimeInterval(dt))
+                        elem.date = String("\(date)".dropLast(9))
                     }
-                    
-                    self.view?.data.append(elem)
-                }  
-//                print(self.view?.data)
-                
+                    self.data.append(elem)
+                }                  
                 return self.reload()
             }
         }
         
-        return print("kek")
+        return self.loading()
 
     }
     
     func reload() {
+        print("reloaded")
         self.view?.tableView.reloadData()
+    }
+    
+    func loading() {
+        print("loading")
     }
 }
     

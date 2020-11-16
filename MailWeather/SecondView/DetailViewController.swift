@@ -7,17 +7,16 @@
 
 import UIKit
 
-class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class DetailViewController: UIViewController, UITableViewDataSource {
     
     let tableView = UITableView()
     let presenter = DetailPresenter()
     var cityName: String?
-    var data: [DetailModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.view = self
-//        print(data.count)
+        tableView.dataSource = self
         self.title = cityName
         self.view.addSubview(tableView)
     }
@@ -26,21 +25,22 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         setupConstraints()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        presenter.loadData(cityName: self.cityName ?? "")
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return presenter.data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.backgroundColor = .black
-        cell.textLabel?.text = "\(data[indexPath.row].date)"
-        print(cell)
+        let cell = DetailTableViewCell()
+        cell.dateLabel.text = "\(presenter.data[indexPath.row].date)"
+        cell.iconLabel.text = "\(presenter.data[indexPath.row].weather)"
+        cell.tempLabel.text = "\(presenter.data[indexPath.row].temperature)"
         return cell
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        presenter.loadData(cityName: self.cityName ?? "")
-    }
     
     func setupConstraints() {
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
