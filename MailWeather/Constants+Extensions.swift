@@ -17,9 +17,9 @@ extension String {
         case "Clear":
             return "☀️"
         case "Rain":
-            return "🌧"
+            return "☔️"
         case "Snow":
-            return "🌨"
+            return "❄️"
         default:
             return self
         }
@@ -27,6 +27,18 @@ extension String {
     }
     
     func addCelcium() -> String {self + "℃"}
+    
+    func convertToURLtype() -> String {
+        var result = ""
+        let split = self.split(separator: " ")
+        for elem in split {
+            result += elem
+            if elem != split.last {
+                result += "%20"
+            }
+        }
+        return result
+    }
     
 }
 

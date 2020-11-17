@@ -25,6 +25,7 @@ class FirstViewController: UIViewController, UISearchBarDelegate  {
         
         searchBar.delegate = self
         searchBar.becomeFirstResponder() 
+        searchBar.keyboardType = .alphabet
         
         view.addSubview(searchBar)
         view.addSubview(centralView)

@@ -13,14 +13,22 @@ class DetailPresenter {
     
     private let urlheader = "https://api.openweathermap.org/data/2.5/forecast?q="
     var data: [DetailModel] = []
-
+    
     func loadData(cityName: String) -> ( Void ) {
         
         AF.request(self.urlheader + cityName + "&appid=" + apiKey).responseJSON { responce in
             let data = responce.value as? NSDictionary
+            var timeZone = 0
+            if let city = data?["city"] as? NSDictionary {
+                if let timezone = city["timezone"] as? Int {
+                    timeZone = timezone
+                }
+             }
+            
             if let list = data?["list"] as? Array<NSDictionary>{
                 for item  in list {
                     var elem = DetailModel(date: "", weather: "", temperature: "")
+                    
                     
                     if let main = item["main"] as? NSDictionary {
                         if let temperature = main["temp"] as? Double{
@@ -35,7 +43,9 @@ class DetailPresenter {
                     }
                     
                     if let dt = item["dt"] as? Int {
-                        let date = Date(timeIntervalSince1970: TimeInterval(dt))
+                        let curentTimeZone = TimeZone.current.secondsFromGMT()
+                        let curentTime = dt + timeZone - curentTimeZone
+                        let date = Date(timeIntervalSince1970: TimeInterval(curentTime))
                         elem.date = date.convert()
                     }
                     self.data.append(elem)
@@ -49,13 +59,15 @@ class DetailPresenter {
     func reload() {
         print("reloaded")
         self.view?.tableView.reloadData()
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: 0.5) {
             self.view?.tableView.alpha = 1
+            self.view?.stackView.alpha = 0
         }
+        self.view?.stackView.removeFromSuperview()
     }
     
     func loading() {
-        print("loading")
+        self.view?.animate()
     }
 }
-    
+

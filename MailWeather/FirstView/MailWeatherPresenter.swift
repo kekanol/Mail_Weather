@@ -17,10 +17,9 @@ class MailWeatherPresenter {
     
     func textDidChange(searchText: String) {
         animate()
-        makeRequest(name: searchText)
+        makeRequest(name: searchText.convertToURLtype())
         search = searchText
     }
-    
     func makeRequest(name: String) {
         AF.request(self.urlHeader + "\(name)"  + "&appid=" + apiKey).responseJSON { response in
             
@@ -57,7 +56,7 @@ class MailWeatherPresenter {
     @ objc func show() {
         self.view?.centralView.tapAction()
         
-        if self.search == self.view?.centralView.cityName.text {
+        if self.search != "NO CITY LIKE THAT" ||  self.search != "NO CONNECTION" ||  self.search != "ENTER WRIGHT" {
             
             let destination = DetailViewController()
             destination.cityName = self.search
