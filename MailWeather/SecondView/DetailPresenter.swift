@@ -57,7 +57,6 @@ class DetailPresenter {
     }
     
     func reload() {
-        print("reloaded")
         self.view?.tableView.reloadData()
         UIView.animate(withDuration: 0.5) {
             self.view?.tableView.alpha = 1
