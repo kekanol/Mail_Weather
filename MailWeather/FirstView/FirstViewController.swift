@@ -22,6 +22,7 @@ class FirstViewController: UIViewController, UISearchBarDelegate  {
         presenter.view = self
         
         self.view.backgroundColor = .white
+        overrideUserInterfaceStyle = .light
         
         searchBar.delegate = self
         searchBar.becomeFirstResponder() 

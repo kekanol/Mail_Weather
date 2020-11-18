@@ -45,6 +45,7 @@ class DetailViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
+        overrideUserInterfaceStyle = .light
         self.setupAnimation()
         tableView.alpha = 0
         presenter.view = self
